@@ -2,6 +2,7 @@ const ethers = require("ethers");
 const { Options } = require("@layerzerolabs/lz-v2-utilities");
 const readline = require("readline");
 const { config: dotenvConfig } = require("dotenv");
+const contractAddress = require('../config/contract.json');
 
 dotenvConfig({ path: "./.env" });
 
@@ -15,13 +16,12 @@ function askQuestion(question) {
     return new Promise((resolve) => rl.question(question, resolve));
 }
 async function sendMessage(message, options) {
-    // 設置提供者和簽名者
-    const oappAddress = "0x36C89EA9BdB76Dd24446f57Ce1b9B05C70010c96";
+    const oappAddress = contractAddress.sepolia.OApp;
     const remoteEid = 40232;
     const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_SEPOLIA);
     const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-    // 定義 Endpoint 合約的 ABI
+    // ABI
     const oappAbi = [
         "function quote(uint32 dstEid, string _message, bytes _options, bool _payInLzToken) view external returns (tuple(uint256 nativeFee, uint256 lzTokenFee))",
         "function send(uint32 dstEid, string _message, bytes _options) external payable",
@@ -63,15 +63,6 @@ async function sendMessage(message, options) {
         await sendTx.wait();
         console.log("\nSend message successfully: ", sendTx.hash);
 
-        // if (currentPeer !== toHex(0)) {
-        //     console.log(`Send Message From OApp: ${oappAddress}...`);
-        //     const sendTx = await oappContract.send(remoteEid, message, options);
-        //     await sendTx.wait();
-        //     console.log("\nSend message successfully!");
-        // } else {
-        //     console.log("\nRemote peer does not exist. Skipping transaction.");
-        // }
-
     } catch (error) {
         console.error("\nAn error occurred while sending a message: ", error);
         rl.close();
@@ -83,7 +74,6 @@ async function main() {
     const isDefaultOptions = await askQuestion("Use default options? (y/n): ");
     if (isDefaultOptions === "y") {
         const options = Options.newOptions().addExecutorLzReceiveOption(50000, 0).toHex().toString();
-        console
         await sendMessage(message, options);
         rl.close();
         process.exit();
@@ -92,7 +82,6 @@ async function main() {
         const gas = await askQuestion("Enter message options gas: ");
         const value = await askQuestion("Enter message options value: ");
         const options = Options.newOptions().addExecutorLzReceiveOption(gas, value).toHex().toString();
-        console.log("Sending...");
         await sendMessage(message, options);
         rl.close();
         process.exit();

@@ -1,5 +1,6 @@
 const { ethers } = require("ethers");
 const { config: dotenvConfig } = require("dotenv");
+const contractAddress = require('../config/contract.json');
 
 dotenvConfig({ path: "./.env" });
 
@@ -53,24 +54,24 @@ async function setLibraries(oappAddress, sendLibAddress, receiveLibAddress, endp
 async function main() {
   // 第一個 OApp 的參數
   const oapp1 = {
-    oappAddress: "0x36C89EA9BdB76Dd24446f57Ce1b9B05C70010c96",
-    sendLibAddress: "0xcc1ae8cf5d3904cef3360a9532b477529b177cce",
-    receiveLibAddress: "0xdAf00F5eE2158dD58E0d3857851c432E34A3A851",
-    endpointContractAddress: "0x6EDCE65403992e310A62460808c4b910D972f10f",
+    oappAddress: contractAddress.sepolia.OApp,
+    sendLibAddress: contractAddress.sepolia.SendLib,
+    receiveLibAddress: contractAddress.sepolia.ReceiveLib,
+    endpointContractAddress: contractAddress.sepolia.Endpoint,
     rpcUrl: process.env.RPC_URL_SEPOLIA,
     privateKey: process.env.PRIVATE_KEY,
-    remoteEid: 40232,
+    remoteEid: contractAddress.opSepolia.Eid,
   };
 
   // 第二個 OApp 的參數
   const oapp2 = {
-    oappAddress: "0xB2fddcD4114AA1022Ae47ffeF6Efd4f9C105Ab31",
-    sendLibAddress: "0xB31D2cb502E25B30C651842C7C3293c51Fe6d16f",
-    receiveLibAddress: "0x9284fd59B95b9143AF0b9795CAC16eb3C723C9Ca",
-    endpointContractAddress: "0x6EDCE65403992e310A62460808c4b910D972f10f",
+    oappAddress: contractAddress.opSepolia.OApp,
+    sendLibAddress: contractAddress.opSepolia.SendLib,
+    receiveLibAddress: contractAddress.opSepolia.ReceiveLib,
+    endpointContractAddress: contractAddress.opSepolia.Endpoint,
     rpcUrl: process.env.RPC_URL_OPTSEP,
     privateKey: process.env.PRIVATE_KEY,
-    remoteEid: 40161,
+    remoteEid: contractAddress.sepolia.Eid,
   };
 
   // 執行第一個 OApp 的設置
