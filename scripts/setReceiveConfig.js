@@ -60,7 +60,7 @@ async function resetReceiveConfig(nonce) {
 
 async function setReceiveConfig() {
   // Addresses
-  const oappAddress = "0x0E2385a2308f072b1Eb0437C6D9db80572ABcD1C";
+  const oappAddress = "0xB2fddcD4114AA1022Ae47ffeF6Efd4f9C105Ab31";
   const receiveLibAddress = "0x9284fd59B95b9143AF0b9795CAC16eb3C723C9Ca";
 
   // Configuration

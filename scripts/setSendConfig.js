@@ -76,7 +76,7 @@ async function resetSendConfig(nonce) {
 
 async function setSendConfig() {
   // Addresses
-  const oappAddress = "0x6AcF77bCd5790AB6E4798855225A7Bb8044e888c";
+  const oappAddress = "0x36C89EA9BdB76Dd24446f57Ce1b9B05C70010c96";
   const sendLibAddress = "0xcc1ae8Cf5D3904Cef3360A9532B477529b177cCE";
 
   // Configuration

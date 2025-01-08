@@ -5,7 +5,7 @@ dotenvConfig({ path: "./.env" });
 
 async function setLibraries(oappAddress, sendLibAddress, receiveLibAddress, endpointContractAddress, rpcUrl, privateKey, remoteEid) {
   // 設置提供者和簽名者
-  const provider = new ethers.JsonRpcProvider(rpcUrl);
+  const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
   const signer = new ethers.Wallet(privateKey, provider);
 
   // 定義 Endpoint 合約的 ABI
@@ -53,22 +53,22 @@ async function setLibraries(oappAddress, sendLibAddress, receiveLibAddress, endp
 async function main() {
   // 第一個 OApp 的參數
   const oapp1 = {
-    oappAddress: "0x6AcF77bCd5790AB6E4798855225A7Bb8044e888c",
+    oappAddress: "0x36C89EA9BdB76Dd24446f57Ce1b9B05C70010c96",
     sendLibAddress: "0xcc1ae8cf5d3904cef3360a9532b477529b177cce",
     receiveLibAddress: "0xdAf00F5eE2158dD58E0d3857851c432E34A3A851",
     endpointContractAddress: "0x6EDCE65403992e310A62460808c4b910D972f10f",
-    rpcUrl: process.env.SEPOLIA_RPC_URL,
+    rpcUrl: process.env.RPC_URL_SEPOLIA,
     privateKey: process.env.PRIVATE_KEY,
     remoteEid: 40232,
   };
 
   // 第二個 OApp 的參數
   const oapp2 = {
-    oappAddress: "0x0E2385a2308f072b1Eb0437C6D9db80572ABcD1C",
+    oappAddress: "0xB2fddcD4114AA1022Ae47ffeF6Efd4f9C105Ab31",
     sendLibAddress: "0xB31D2cb502E25B30C651842C7C3293c51Fe6d16f",
     receiveLibAddress: "0x9284fd59B95b9143AF0b9795CAC16eb3C723C9Ca",
     endpointContractAddress: "0x6EDCE65403992e310A62460808c4b910D972f10f",
-    rpcUrl: process.env.OP_SEPOLIA_RPC_URL,
+    rpcUrl: process.env.RPC_URL_OPTSEP,
     privateKey: process.env.PRIVATE_KEY,
     remoteEid: 40161,
   };
