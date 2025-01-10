@@ -96,7 +96,7 @@ async function resetReceiveConfig(nonce) {
     };
 
     // Provider and Signer
-    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPTSEP);
+    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPSEP);
     const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
     // ABI and Contract
@@ -132,7 +132,7 @@ async function resetReceiveConfig(nonce) {
 
 async function main() {
     const providerSepolia = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_SEPOLIA);
-    const providerOptSep = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPTSEP);
+    const providerOptSep = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPSEP);
     const signerSepolia = new ethers.Wallet(process.env.PRIVATE_KEY, providerSepolia);
     const signerOptSep = new ethers.Wallet(process.env.PRIVATE_KEY, providerOptSep);
 

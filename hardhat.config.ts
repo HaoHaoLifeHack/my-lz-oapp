@@ -63,7 +63,7 @@ const config: HardhatUserConfig = {
         },
         'op-sep-testnet': {
             eid: EndpointId.OPTSEP_V2_TESTNET,
-            url: process.env.RPC_URL_OPTSEP,
+            url: process.env.RPC_URL_OPSEP,
             accounts,
         },
         hardhat: {

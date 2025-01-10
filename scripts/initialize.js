@@ -15,7 +15,7 @@ async function setPeer(srcOAppAddr, dstOAppAddr, eid, signer, nonce) {
 
 async function main() {
     const providerSepolia = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_SEPOLIA);
-    const providerOptSep = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPTSEP);
+    const providerOptSep = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPSEP);
     const signerSepolia = new ethers.Wallet(process.env.PRIVATE_KEY, providerSepolia);
     const signerOptSep = new ethers.Wallet(process.env.PRIVATE_KEY, providerOptSep);
 

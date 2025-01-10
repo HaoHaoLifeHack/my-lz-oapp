@@ -22,7 +22,7 @@ async function setReceiveConfig() {
   };
 
   // Provider and Signer
-  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPTSEP);
+  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL_OPSEP);
   const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
   // ABI and Contract

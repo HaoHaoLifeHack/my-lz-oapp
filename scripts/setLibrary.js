@@ -69,7 +69,7 @@ async function main() {
     sendLibAddress: contractAddress.opSepolia.SendLib,
     receiveLibAddress: contractAddress.opSepolia.ReceiveLib,
     endpointContractAddress: contractAddress.opSepolia.Endpoint,
-    rpcUrl: process.env.RPC_URL_OPTSEP,
+    rpcUrl: process.env.RPC_URL_OPSEP,
     privateKey: process.env.PRIVATE_KEY,
     remoteEid: contractAddress.sepolia.Eid,
   };
